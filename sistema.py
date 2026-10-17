@@ -122,34 +122,38 @@ while True:
             print("El libro no existe.")
 
     elif opcion == "3":
-        titulo = input("¿Qué libro deseas pedir prestado?: ").strip()
-        encontrado = False
 
-        for libro in libros:
-            if libro["titulo"].lower() == titulo.lower():
-                encontrado = True
+        if multa_total > 0:
+            print("No puedes cojer un libro prestado tienes una multa")
+        else:
+            titulo = input("¿Qué libro deseas pedir prestado?: ").strip()
+            encontrado = False
 
-                if libro in prestados:
-                    print("Ya tienes ese libro prestado.")
-                elif len(prestados) >= 3:
-                    print("No puedes pedir más de 3 libros.")
-                elif libro["copias"] <= 0:
-                    print("No hay copias disponibles.")
-                elif edad < 12 and libro["categoria"] != "infantil":
-                    print("Solo puedes pedir libros infantiles.")
-                elif 12 <= edad < 18 and libro["categoria"] == "adultos":
-                    print("No puedes pedir libros para adultos.")
-                else:
-                    prestados.append(libro)
-                    libro["copias"] -= 1
-                    print("Libro prestado correctamente.")
+            for libro in libros:
+                if libro["titulo"].lower() == titulo.lower():
+                    encontrado = True
 
-                    if libro["copias"] == 1:
-                        print("¡Solo queda una copia!")
-                break
+                    if libro in prestados:
+                        print("Ya tienes ese libro prestado.")
+                    elif len(prestados) >= 3:
+                        print("No puedes pedir más de 3 libros.")
+                    elif libro["copias"] <= 0:
+                        print("No hay copias disponibles.")
+                    elif edad < 12 and libro["categoria"] != "infantil":
+                        print("Solo puedes pedir libros infantiles.")
+                    elif 12 <= edad < 18 and libro["categoria"] == "adultos":
+                        print("No puedes pedir libros para adultos.")
+                    else:
+                        prestados.append(libro)
+                        libro["copias"] -= 1
+                        print("Libro prestado correctamente.")
 
-        if not encontrado:
-            print("El libro no existe.")
+                        if libro["copias"] == 1:
+                            print("¡Solo queda una copia!")
+                    break
+
+            if not encontrado:
+                print("El libro no existe.")
 
     elif opcion == "4":
         titulo = input("¿Qué libro deseas devolver?: ")
