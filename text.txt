@@ -1,0 +1,13 @@
+Tarea: Sistema de gestión de una biblioteca
+
+Crea un programa que simule el funcionamiento de una biblioteca pequeña. Debe cumplir lo siguiente:
+
+Al iniciar, el programa debe tener guardados al menos 5 libros en una estructura de datos. Cada libro debe tener un título, un autor, un año de publicación, una cantidad de copias disponibles y una categoría.
+Debe pedirle al usuario su nombre y su edad. Si es menor de 12 años, solo puede ver y pedir libros de la categoría “infantil”. Si tiene entre 12 y 17, no puede acceder a los de la categoría “adultos”. Si tiene 18 o más, tiene acceso a todo.
+El usuario debe poder elegir entre varias opciones: ver los libros disponibles según su edad, buscar un libro por título, pedir prestado un libro, devolver un libro y salir.
+Al pedir prestado un libro, el programa debe verificar que el libro exista, que haya copias disponibles y que el usuario tenga permiso por su edad. Además, un usuario no puede tener más de 3 libros prestados al mismo tiempo ni pedir el mismo libro dos veces.
+Al devolver un libro, debe comprobar que realmente lo tenía prestado. Si lo devuelve después del plazo (pregúntale al usuario cuántos días lo tuvo), debe calcular una multa según los días de retraso, donde el plazo normal es de 7 días y cada día extra cuesta una cantidad fija.
+El menú debe repetirse hasta que el usuario decida salir, y al salir debe mostrar un resumen con los libros que aún tiene prestados y el total de multas acumuladas.
+Debe manejar entradas inválidas (opciones que no existen, números negativos, títulos que no están en la biblioteca) sin que el programa falle.
+
+Reto extra: que el programa muestre una advertencia cuando un libro tenga solo 1 copia disponible.
